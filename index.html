@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/shoelace-autoloader.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        :root {
+            --qr-size: 256px;
+        }
+
+        .qr-wrapper {
+            margin: 0 auto;
+            display: inline-block;
+            position: relative;
+        }
+
+        #nff-logo {
+            position: absolute;
+            top: calc(var(--qr-size) / 2);
+            left: calc(var(--qr-size) / 2);
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+        }
+
+        .phone {
+            position: relative;
+            width: 500px;
+
+            .phone-content {
+                position: absolute;
+                inset: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 3px dashed rebeccapurple;
+                border-radius: 60px;
+            }
+        }
+      </style>
+</head>
+<body>
+    <div class="phone">
+        <img id="phone-img" src="img/phone.jpg" alt="phone" style="width: 100%; height: 100%;">
+
+        <div class="phone-content">
+
+            <div class="qr-wrapper">
+                <sl-qr-code 
+                    value="https://shoelace.style/components/qr-code#parts" 
+                    label="Scan this code to visit Shoelace on the web!"
+                    size="256">
+                    
+                </sl-qr-code>
+                <img id="nff-logo" src="img/nff-logo.png" alt="NFF">
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
