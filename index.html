@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/shoelace-autoloader.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/shoelace-autoloader.js"></script>
 
     <style>
         body {
@@ -18,12 +20,51 @@
 
         :root {
             --qr-size: 256px;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+
+        .phone {
+            position: relative;
+            width: 500px;
+
+            .phone-content {
+                position: absolute;
+                inset: 20px;
+                display: flex;
+                flex-direction: column;
+
+
+                justify-content: space-between;
+                border: 3px dashed rebeccapurple;
+                border-radius: 60px;
+                overflow: hidden;
+            }
+        }
+
+        /* content css */
+
+        hgroup {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: #00205b;
+            color: white;
+            padding: 3.5rem 2rem 2rem;
+        }
+        hgroup:hover {
+            background-color: #00205bbe;
         }
 
         .qr-wrapper {
             margin: 0 auto;
-            display: inline-block;
+            display: block;
             position: relative;
+
+            p {
+                text-align: center;
+                font-size: .8rem;
+                margin-top: 0;
+            }
         }
 
         #nff-logo {
@@ -35,39 +76,72 @@
             height: 100px;
         }
 
-        .phone {
-            position: relative;
-            width: 500px;
+        .content {
+            text-align: center;
+            padding-inline: 2rem;
 
-            .phone-content {
-                position: absolute;
-                inset: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 3px dashed rebeccapurple;
-                border-radius: 60px;
+            em {
+                font-style: normal;
+                font-size: 200%;
+                margin-inline: 1rem;
             }
         }
-      </style>
+
+        .valid {
+            color: red;
+            font-size: 1.5rem;
+            text-align: center;
+
+            em {
+                font-style: normal;
+                font-size: 200%;
+                margin-inline: 1rem;
+            }
+        }
+
+        footer {
+            padding: 2rem;
+        }
+
+    </style>
 </head>
+
 <body>
     <div class="phone">
         <img id="phone-img" src="img/phone.jpg" alt="phone" style="width: 100%; height: 100%;">
 
         <div class="phone-content">
 
-            <div class="qr-wrapper">
-                <sl-qr-code 
-                    value="https://shoelace.style/components/qr-code#parts" 
-                    label="Scan this code to visit Shoelace on the web!"
-                    size="256">
-                    
-                </sl-qr-code>
-                <img id="nff-logo" src="img/nff-logo.png" alt="NFF">
+            <hgroup>
+                <img src="img/nff-logo.png" alt="NFF">
+                <h1>NFF Nordmøre og Romsdal</h1>
+            </hgroup>
+
+            <div class="content">
+                <h2>Testulf Testelid Testesen</h2>
+
+                <p>Adgansbevis for <em>to personer</em> til alle fotballkamper arrangert av klubber i kretsen</p>
+            </div> 
+
+            <div class="valid">
+                Gyldig sesongen <em>2024</em>
             </div>
 
+
+                <div class="qr-wrapper">
+                    <sl-qr-code value="https://shoelace.style/components/qr-code#parts"
+                        label="Scan this code to visit Shoelace on the web!" size="256">
+
+                    </sl-qr-code>
+                    <img id="nff-logo" src="img/nff-logo.png" alt="NFF">
+                    <p>Skann QR koden for å verifisere gyldighet</p>
+                </div>
+
+            <footer>
+                Kortet kan ikke overdras eller lånes ut, og er kun gyldig ved femvising av legitimasjon eller digital verifisering.
+            </footer>
         </div>
     </div>
 </body>
+
 </html>
