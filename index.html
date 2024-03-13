@@ -124,7 +124,8 @@
         }
 
         footer {
-            padding: 2rem;
+            padding-block: clamp(5px, 3vw, 2rem) clamp(5px, 5vw, 2rem);
+            padding-inline: clamp(5px, 5vw, 2rem);
         }
 
     </style>
@@ -169,14 +170,16 @@
             </footer>
         </div>
     </div>
+
     <script>
         function resize() {
             const clamp = (min, max, value) => {
                 return Math.min(Math.max(min, value), max);
             }
             const wwidth = window.innerWidth;
+            const hheight = window.innerHeight;
             console.log(wwidth)
-            const size = clamp(150, wwidth - 32, wwidth * .8)
+            const size = clamp(150, 650, Math.min(hheight * .4, wwidth * .65))
             const logosize = size * 0.4;
             const qr = document.querySelector('sl-qr-code');
             qr.size = size;
